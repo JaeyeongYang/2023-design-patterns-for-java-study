@@ -1,9 +1,8 @@
 package part1
 
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Order
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.*
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation::class)
 internal class BookShelfTest {
     private val bookShelf = BookShelf(bookShelfSize)
 
