@@ -1,12 +1,12 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.text.SimpleDateFormat
+import java.util.*
 
 plugins {
     kotlin("jvm") version "1.8.21"
 }
 
 group = "org.jaeyeongyang"
-version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_17
+version = SimpleDateFormat("yyyyMMdd").format(Date()) + "-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -16,13 +16,10 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "17"
-    }
+tasks.test {
+    useJUnitPlatform()
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
+kotlin {
+    jvmToolchain(17)
 }
