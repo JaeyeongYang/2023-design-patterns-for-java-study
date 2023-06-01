@@ -1,0 +1,4 @@
+#Thu Jun 01 12:58:12 KST 2023
+depth=32
+width=1024
+height=512
